@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>form</title>
+</head>
+
+<body>
+    <form action="" method="post" autocomplete="off">
+        <lable for="username">User Name:-</lable>
+        <input type="text" placeholder="enter your user name" name="username" required />
+        <hr>
+        <lable for="email">Email :-</lable>
+        <input type="email" placeholder="enter your email" name="email" required />
+        <hr>
+        <lable for="tel">tel :-</lable>
+        <input type="tel" placeholder="enter your telephone no" name="tel" required />
+        <hr>
+        <lable for="password">Password</lable>
+        <input type="password" placeholder="password" name="password" required/>
+        <hr>
+        <lable for="date">Date:-</lable>
+        <input type="date" name="date">
+        <hr>
+        <lable for="gender">Gender :-</lable>
+        <input type="radio" name="gender" selected />Male
+        <input type="radio" name="gender" />Female<br>
+        <hr>
+        <lable for="hobby">Hobby :-</lable>
+        <input type="checkbox" name="hobby" value="cricket" checked />cricket
+        <input type="checkbox" name="hobby" value="football" />football<br>
+        <hr>
+        <lable for="color">Color :-</lable>
+        <input type="color" name="color" value="color" />
+        <hr>
+        <lable for="upload file">Upload File</lable>
+        <input type="file" multiple name="file" />
+        <hr>
+        <label for="city">City:-</label>
+        <select>
+            <option value="">Enter city</option>
+            <option value="surat" selected>surat</option>
+            <option value="navsari">navsari</option>
+            </select>
+        <hr>
+        <lable for="volume">volume</lable>
+        <input type="range" max="100" min="0" name="volume"/>
+        <hr>
+        <input type="reset" name="reset"/>
+        <input type="search" name="search" placeholder="search"/>
+        <button type="submit">submit</button>
+
+    </form>
+
+</body>
+
+</html>
