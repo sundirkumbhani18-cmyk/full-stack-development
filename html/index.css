@@ -1,3 +1,15 @@
 p{
     color:chartreuse;
 }
+.box-1>p{
+         color: darkorange;
+}
+#box-2 p{
+    color: aqua;
+}
+.box-3>p{
+    color: gold;
+}
+#box p{
+    color: crimson;
+}
