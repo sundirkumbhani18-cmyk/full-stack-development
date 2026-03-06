@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+p{
+    color: rgb(123,232,32);
+    font-size: 50px;
+    text-align: justify;
+    text-transform: capitalize;
+} 
+h1{
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+    
+}
