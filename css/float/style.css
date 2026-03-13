@@ -1,0 +1,21 @@
+.container{
+    width: 1200px;
+    height: 200px;
+    background-color: brown;
+    margin: 0px auto;
+}
+.box-1{
+    height: 50px;
+    width: 25%;
+    border: 3px solid black;
+    float: left;
+}
+.box-2{
+    height: 50px;
+    width: 25%;
+    border: 3px solid black;
+    float: right;
+}
+.clear{
+    clear: both;
+}

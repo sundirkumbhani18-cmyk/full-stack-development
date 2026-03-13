@@ -1,0 +1,16 @@
+body{
+    background-image: url(https://media.istockphoto.com/id/514990693/photo/morning-of-summer.jpg?s=170667a&w=0&k=20&c=WIW3HNr2GG_us_pyGfDYrllgkfCOGoIvJVkXzVabTgY=);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box{
+    height: 800px;
+    width: 1000px;
+    background-color: blueviolet;
+    border: 10px solid red;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 20px 40px;
+    background-position: center;
+}

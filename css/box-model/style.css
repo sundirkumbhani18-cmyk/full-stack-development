@@ -1,0 +1,17 @@
+body{
+    background-image: url('https://images.pexels.com/photos/30234043/pexels-photo-30234043.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.box{
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px ;
+    background-image: url('https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    border: 10px dashed burlywood;
+    background-origin: border-box;
+}
