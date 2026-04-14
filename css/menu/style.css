@@ -1,0 +1,49 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.container{
+    
+    margin: 0px auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-12{
+    width: 100%;
+    
+}
+ul{
+    list-style-type: none;
+    display: flex;
+}
+a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.menu ul li{
+    display: inline;
+    flex-wrap: wrap;
+    justify-items: center;
+    
+    
+}
+
+.dropdown{
+    display: flex;
+    flex-wrap: wrap;
+    visibility: hidden;
+}
+.menu .dropdown ul li a:hover{
+    visibility: visible;
+}
+.dropdown .featured{
+    width: 50%;
+}
+.dropdown .allpopular{
+    width: 50%;
+}

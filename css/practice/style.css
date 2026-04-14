@@ -7,7 +7,8 @@
 .container{
     width: 1170px;
     margin: 10px auto;
-    float: left;
+    
+    
 }
 a{
     text-decoration: none;
@@ -16,21 +17,19 @@ a{
 ul{
     list-style-type: none;
 }
-.clear{
-    clear: both;
-}
+
 .left-contant{
-    float: left;
+    display: inline-block;
     width: 50%;
 }
 .right-contant{
-    float: right;
+    display: inline-block;
     width: 50%;    
 }
 
 .right-contant ul li{
-    float: left;
-    margin: 0px 20px;
+     display: inline-block;
+    
     
 }
 
@@ -62,7 +61,7 @@ ul{
     padding-top: 20px;
     color: rgb(167, 167, 165);
 }
-.menu{
+#menu{
     margin: 50px 30px;
 }
 .menu-content{
@@ -127,7 +126,15 @@ ul{
    padding-top: 35px;
    padding-left: 550px;
 
-}    
+} 
+button{
+    background-color: rgb(204, 204, 204);
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 10px gray;
+}   
 
 
 

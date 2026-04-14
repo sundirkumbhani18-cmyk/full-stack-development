@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: 3px;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: larger;
+    padding: 8px 16px;
+    display: block;
+    font-size: larger;
+}
+.container{
+    width: 100%;
+    
+}
+
+header{
+    background-color: black;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+.col-1 .col-2 .col-3 .col-4 .col-5 .col-6 .col-7 .col-8 .col-9 .col-10 .col-11 .col-12{
+    padding: 10px 10px;
+    
+}
+.sidebar{
+    
+    width: 22%;
+    height: 100vh;
+    background-color: #f44336;
+    position: sticky;
+    left: 0px;
+    top: 0px;
+    overflow: auto;
+    
+}
+.companyname{
+    padding: 16px 30px;
+}
+.leftsidebar .companyname h2{
+    color: white;
+    font-size: 25px;
+    padding: 64px 0px;
+    
+}
+.leftsidebar .menu{
+    padding: 16px 20px;
+}
+main{
+    width: 78%;
+}
+main .interior-title{
+    margin: 80px 0px 0px 0px;
+}
+.layout{
+    display: flex;
+    flex-wrap: wrap;
+}
+h1{
+    font-size: 64px;
+}
+.rightside{
+    width: 78%;
+}
+.container .interior-title{
+    padding: 0px 40px;
+}
+.showcase .showcasetitle{
+    color: #f44336;
+    font-size: 48px;
+    padding: 20px 40px;
+}
+hr{
+    background-color: #f44336;
+    width: 40px;
+    height: 10px;
+    border-radius: 5px;
+    
+    
+}
+.showcase img{
+    width: 100%;
+    height: 297px;
+    padding: 10px 10px;
+}
+.showcaseimage{
+    padding: 10px 10px;
+}
+.logo{
+    justify-items: end;
+    padding: 10px 10px;
+}
+p{
+    color: aliceblue;
+}
+.logo p:hover{
+    background-color: aliceblue;
+    color: rgb(18, 88, 187);
+}

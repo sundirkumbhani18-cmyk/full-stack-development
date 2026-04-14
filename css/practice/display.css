@@ -1,0 +1,59 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container{
+    background-color: aqua;
+    width: 1170px;
+    margin: 0px auto;
+    padding: 10px 20px;
+}
+.box-1{
+    width: 33%;
+    background-color: blanchedalmond;
+    display: inline-block;
+}
+.box-2{
+    width: 33%;
+    background-color: blue;
+    display: inline-block;
+}
+.box-3{
+    width: 33%;
+    background-color: blueviolet;
+    display: inline-block;
+}
+.box-4{
+    width: 33%;
+    background-color: chocolate;
+    display: inline-block;
+    
+}
+.box-5{
+    width: 33%;
+    background-color: cadetblue;
+    display: inline-block;
+    
+}
+.box-6{
+    width: 33%;
+    background-color: cadetblue;
+    display: inline-block;
+    
+}
+input{
+    font-size: 20px;
+    height: 40px;
+    width: 1100px;
+    
+    
+    
+    padding: 0px 20px;
+    
+}
+form{
+    margin: 20px auto;
+    width: 1170px;
+    padding: 20px 20px;
+}

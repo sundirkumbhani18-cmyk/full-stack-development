@@ -1,0 +1,315 @@
+*{
+    margin: 0px 0px;
+    padding: 0px 0px;
+    
+}
+.my{
+    margin: 30px 0px;
+    float: nones;
+}
+h1{
+    margin-top: 30px;
+}
+.my p{
+    margin-top: 20px;
+    font-size: 20px;
+}
+.my font{
+    color: aliceblue;
+    background-color: black;
+}
+#hero{
+    margin: 30px 15px;    
+}
+#hero .box-1{
+    width: 850px;
+    height: auto;
+    float: left;
+}
+#hero .box-2{
+    width: 380px;
+    height: auto;
+    float: right;
+}
+#hero .clear{
+    clear: both;
+    
+}
+#hero .title{
+    width: 820px;
+    height: 600px;
+    box-shadow: 1px 1px 10px grey;
+     
+}
+#hero .title h2{
+    padding: 20px 20px;
+}
+#hero .title p{
+    padding: 0px 20px;
+    font-size: 20px;
+}
+#hero .title font{
+    color: gray;
+    font-size: 20px;
+}
+#hero .title :nth-child(3){
+   padding: 20px 20px;
+   font-size: 25px;
+}
+#hero .read{
+    margin: 30px;
+    border: 3px;
+    border-radius: 5px;
+    width: 200px;
+    height: 60px;
+    background-color: aqua;
+}
+button{
+    margin: 40px 20px;
+    background-color: rgb(255, 255, 254);
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}
+#hero .title .comments font{
+    background-color: black;
+}
+#hero .title .comments{
+    margin-left: 335px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-size: 20px;
+}
+#hero .blog{
+    margin: 40px 0px;
+    width: 820px;
+    height: 630px;
+    box-shadow: 1px 1px 10px grey;
+}
+#hero .blog img{
+   width: 820px;
+   height: 250px;
+}
+#hero .blog h2{
+    padding: 20px 20px;
+}
+#hero .blog p{
+    padding: 0px 20px;
+    font-size: 20px;
+}
+#hero .blog font{
+    color: gray;
+    font-size: 20px;
+}
+#hero .blog :nth-child(3){
+   padding: 20px 20px;
+   font-size: 25px;
+}
+#hero .blog .comments-1{
+    margin-left: 335px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-size: 20px;
+}
+#hero .blog .comments-1 font{
+    background-color: black;
+    border-radius: 50%;
+    font-size: 15px;
+    width: 25px;
+    height: 25px;
+    color: white;
+    padding: 2px 5px;
+    
+}
+#hero .name{
+    width: 380px;
+    height: 420px;
+    box-shadow: 1px 1px 10px grey;
+}
+#hero .name img{
+    width: 380px;
+    height: 200px;
+    
+}
+#hero .name h2{
+    padding: 20px 20px;
+}
+#hero .name p{
+   padding: 5px 20px;
+   font-size: 20px;
+}
+#hero .post{
+    width: 380px;
+    height: 470px;
+    box-shadow: 1px 1px 10px grey;
+    margin-top: 40px;
+}
+#hero .post .p{
+    width: 380px;
+    height: 70px;
+    background-color: rgb(234, 232, 232);
+    
+}
+#hero .post .p p{
+    font-size: 25px;
+    padding: 20px 20px;
+}
+#hero .post .p-1{
+    width: 380px;
+    height: 100px;
+}
+#hero .post .p-1 img{
+    width: 60px;
+    height: 60px;
+    padding: 20px 20px;
+    float: left;
+}
+#hero .post .p-1 :nth-child(2){
+    font-size: 20px;
+    padding-top: 25px;
+
+}
+#hero .post .p-1 :last-child{
+    font-size: 15px;
+    padding-top: 5px;
+}
+#hero .post .p-2{
+    width: 380px;
+    height: 100px;
+}
+#hero .post .p-2 img{
+    width: 60px;
+    height: 60px;
+    padding: 20px 20px;
+    float: left;
+}
+#hero .post .p-2 :nth-child(2){
+    font-size: 20px;
+    padding-top: 25px;
+
+}
+#hero .post .p-2 :last-child{
+    font-size: 15px;
+    padding-top: 5px;
+}
+#hero .post .p-3{
+    width: 380px;
+    height: 100px;
+}
+#hero .post .p-3 img{
+    width: 60px;
+    height: 60px;
+    padding: 20px 20px;
+    float: left;
+}
+#hero .post .p-3 :nth-child(2){
+    font-size: 20px;
+    padding-top: 25px;
+
+}
+#hero .post .p-3 :last-child{
+    font-size: 15px;
+    padding-top: 5px;
+}
+#hero .post .p-4{
+    width: 380px;
+    height: 100px;
+}
+#hero .post .p-4 img{
+    width: 60px;
+    height: 60px;
+    padding: 20px 20px;
+    float: left;
+}
+#hero .post .p-4 :nth-child(2){
+    font-size: 20px;
+    padding-top: 25px;
+
+}
+#hero .post .p-4 :last-child{
+    font-size: 15px;
+    padding-top: 5px;
+}
+#hero .tags{
+    width: 380px;
+    height: 260px;
+    box-shadow: 1px 1px 10px grey;
+    margin-top: 40px;
+}
+#hero .tags .t{
+    width: 380px;
+    height: 70px;
+    background-color: rgb(234, 232, 232);
+}
+#hero .tags .t p{
+    font-size: 25px;
+    padding: 20px 20px;
+}
+#hero .tags .button{
+    width: 380px;
+    height: 200px;
+    padding: 20px 20px;
+    }
+#hero .button .travel{
+    background-color: black;
+    color: white;
+    width: 80px;
+    font-size: 15px;
+    height: 30px;
+    margin: 0px 0px;
+    padding: 5px 5px;
+    border: none;
+}
+#hero .button button{
+    background-color: rgb(234, 232, 232);
+    width: 80px;
+    font-size: 15px;
+    height: 27px;
+    margin: 5px 0px;
+    padding: 5px 5px;
+    border: none;
+}
+footer{
+    width: 1275px;
+    height: 200px;
+    background-color: rgb(93, 90, 87);
+}
+#f .f-1{
+    width: 100px;
+    height: 45px;
+    background-color: rgb(77, 75, 75);
+    float: left;
+    font-size: 20px;
+    color: rgb(217, 215, 212);
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#f .f-1 p{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+#f .f-2{
+    width: 100px;
+    height: 45px;
+    background-color: black;
+    float: left;
+    font-size: 20px;
+    color: rgb(217, 215, 212);
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#f .f-2 p{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#f .clear{
+    clear: both;
+}
+#f a{
+    margin: 0px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}

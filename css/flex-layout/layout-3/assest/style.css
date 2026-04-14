@@ -1,0 +1,385 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: 3px;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: larger;
+    padding: 8px 16px;
+    display: block;
+    
+}
+.container{
+    width: 100%;
+    }
+header{
+    background-color: black;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    }
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+.col-1 .col-2 .col-3 .col-4 .col-5 .col-6 .col-7 .col-8 .col-9 .col-10 .col-11 .col-12{
+    padding: 10px 10px;
+    
+}
+.logo{
+    padding: 12px 15px;
+    justify-items: end;
+}
+.logo p{
+    color: white;
+}
+.layout{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.sidebar{
+    width: 23%;
+    overflow: auto;
+    position: sticky;
+    top: 50px;
+    left: 0px;
+    height: 100vh; 
+}
+.sidebar .profile-img{
+    padding: 20px 16px;
+}
+.sidebar .profile-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;    
+}
+.sidebar .profile-contain{
+    padding: 20px 16px;
+   
+}
+.sidebar .profile-contain i{
+    margin: 10px 10px;
+    padding: 6px 6px;
+}
+.sidebar .profile-contain i:hover{
+    background-color: rgb(244, 243, 242);
+}
+.sidebar .dashboard{
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+.sidebar .over{
+    background-color: #2196F3;
+}
+.sidebar ul li a{
+    font-size: 18px;
+}
+.sidebar ul li a:hover{
+    background-color: rgb(239, 236, 235);
+}
+.main{
+    width: 77%;
+    
+    background-color: rgb(241, 241, 241);
+}
+.main .col-3{
+    padding: 10px 10px;
+}
+.main .mydashboard{
+    margin-top: 30px;
+    padding: 0px 15px ;
+}
+.main .message{
+    background-color: #f44336;
+    width: 100%;
+    height: 140px;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 50px;
+    
+}
+.main .message .m-contian{
+    font-size: 20px;
+}
+.main .message font{
+    color: white;
+    font-size: 30px;
+}
+.main .message .left{
+    width: 50%;
+}
+
+.main .message .right{
+    padding-left: 35px;
+    justify-items: end;
+    width: 50%;
+}
+.main .message .m-contian h2{
+    color: white;
+}
+.main .view{
+    background-color: #2196F3;
+    width: 100%;
+    height: 140px;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main .view font{
+    color: white;
+    font-size: 30px;
+}
+.main .view .left{
+    width: 50%;
+}
+
+.main .view .right{
+    padding-left: 35px;
+    justify-items: end;
+    width: 50%;
+}
+.main .view .m-contian h2{
+    color: white;
+}
+.main .shares{
+    background-color: #009688;
+    width: 100%;
+    height: 140px;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main .shares font{
+    color: white;
+    font-size: 30px;
+}
+.main .shares .left{
+    width: 50%;
+}
+
+.main .shares .right{
+    padding-left: 35px;
+    justify-items: end;
+    width: 50%;
+}
+.main .shares .m-contian h2{
+    color: white;
+}
+.main .users{
+    background-color: #ff9800;
+    width: 100%;
+    height: 140px;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main .users font{
+    color: white;
+    font-size: 30px;
+}
+.main .users .left{
+    width: 50%;
+}
+
+.main .users .right{
+    padding-left: 35px;
+    justify-items: end;
+    width: 50%;
+}
+.main .users .m-contian h2{
+    color: white;
+}
+.main .regions{
+    padding: 10px 10px;
+}
+.main .regions img{
+    margin-top: 10px;
+    width: 100%;
+    height: 194px;
+}
+.main .feeds{
+    padding: 10px 10px;
+}
+.main .feeds table tr td{
+    padding: 10px 10px;
+}
+.main .feeds table .odd{
+    background-color: white;
+}
+.main .general-stats{
+    margin-top: 20px;
+    padding: 10px 10px;
+}
+.main .new-visitors{
+    padding: 10px;
+}
+.main .newv-left{
+    padding: 10px;
+    color: white;
+    background-color: #4CAF50;
+    width: 25%;
+}
+.main .newv-right{
+    padding: 10px 0px;
+    background-color: #9e9e9e;
+    color: #9e9e9e;
+    width: 75%;
+}
+.main .new-users{
+    padding: 10px;
+}
+.main .newu-left{
+    padding: 10px;
+    color: white;
+    background-color: #ff9800 ;
+    width: 50%;
+}
+.main .newu-right{
+    padding: 10px 0px;
+    background-color: #9e9e9e;
+    color: #9e9e9e;
+    width: 50%;
+}
+.main .bounce{
+    padding: 10px;
+}
+.main .b-left{
+    padding: 10px;
+    color: white;
+    background-color: #f44336;
+    width: 75%;
+}
+.main .b-right{
+    padding: 10px 0px;
+    background-color: #9e9e9e;
+    color: #9e9e9e;
+    width: 25%;
+}
+.container .countries{
+    padding: 10px;
+    margin-top: 30px;
+}
+.container .countries-t{
+    padding: 10px;
+}
+.container .countries-t table tr td{
+    padding: 10px 10px;
+}
+.container .countries-t table .odd{
+    background-color: white;
+}
+button{
+    padding: 10px;
+    margin: 0px 10px;
+    background-color: #616161;
+    border: none;
+    font-size: 17px;
+    color: white;
+}
+button:hover{
+    background-color: #9e9e9e;
+    color: black;
+}
+.container .recent-user{
+    padding: 10px;
+}
+.container .recentuser-pro{
+    padding: 0px;
+    width: 95%;
+    background-color: white;
+    margin: 0px auto;
+}
+.container .recentuser-pro img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+}
+.container .recentuser-pro .mike{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.container .recentuser-pro p{
+    padding: 10px 0px;
+    font-size: 25px;
+}
+.container .recentuser-pro .jill{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.container .recentuser-pro .jane{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.main .recent-comments{
+    padding: 10px;
+    margin-top: 20px;
+}
+.john{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.john .col-2{
+    padding: 20px 20px;
+}
+.john .col-2 img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    
+}
+.john .col-10 {
+    padding: 30px 30px;
+}
+.john .col-10 p:nth-child(2){
+    margin-top: 20px;
+}
