@@ -82,7 +82,7 @@ header{
 }
 .sidebar{
     width: 23%;
-    overflow: auto;
+    overflow: scroll;
     position: sticky;
     top: 50px;
     left: 0px;

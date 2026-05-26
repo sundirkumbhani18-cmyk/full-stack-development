@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+header{
+    background-color: #f44336;
+}
+header .navbar li:hover{
+    background-color: white;
+    color: black !important;
+}

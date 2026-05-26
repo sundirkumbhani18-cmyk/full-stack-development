@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ladder if
+        // let a=23,b=10,c=15;
+        // if(a>b && a>c){
+        //     document.write("<h1>a is big</h1>");
+        // }else if(b>c && b>a){
+        //     document.write("<h1>a is big</h1>");
+        // }else if(c>a && c>b){
+        //     document.write("<h1>c is big</h1>");
+        // }else{
+        //     document.write("<h1>all are same</h1>");
+        // }
+
+
+
+
+        // switch case
+
+        let x = parseInt(prompt("enter x:-"));
+        let y = parseInt(prompt("enter y:-"));
+        let ch = parseInt(prompt("select your choice prees 1 for sum,press 2 for minus,prees 3 for multiple prees 4 for div"));
+        switch (ch) {
+            case 1:
+                document.write(`<h1>sum:-${x + y}</h1>`);
+                break;
+            case 2:
+                document.write(`<h1>minus:-${x - y}</h1>`);
+                break;
+            case 3:
+                document.write(`<h1>mul:-${x * y}</h1>`);
+                break;
+            case 4:
+                document.write(`<h1>div:-${x / y}</h1>`);
+                break;
+            default:
+                alert("faahh");
+        }
+    </script>
+</body>
+
+</html>

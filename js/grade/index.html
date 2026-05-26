@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+</head>
+
+<body>
+       <script>
+              let a = parseInt(prompt("enter mark of gujarati"));
+              let b = parseInt(prompt("enter mark of science"));
+              let c = parseInt(prompt("enter mark of social science"));
+              let d = parseInt(prompt("enter mark of maths"));
+              let e = parseInt(prompt("enter mark of english"));
+              let t = a + b + c + d + e;
+              let p = t / 5;
+              if (p >= 90 && p <= 100) {
+                     document.write("A1 grade");
+              } else if (p >= 80 && p <= 90) {
+                     document.write("A2 grade");
+              } else if (p >= 70 && p <= 80) {
+                     document.write("B1 grade");
+              } else if (p >= 60 && p <= 70) {
+                     document.write("B2 grade");
+              } else if (p >= 50 && p <= 60) {
+                     document.write("C1 grade");
+              } else if (p >= 34 && p <= 50) {
+                     document.write("c2 grade");
+              } else {
+                     document.write(`<h1 style="color:red">you are faild</h1>`);
+              }             
+       </script>
+</body>
+
+</html>

@@ -23,10 +23,11 @@ header .col-8{
 }
 header .col-8 ul li{
     display: inline-block;
+    
 }
 header .col-8 ul li a{
     display: block;
 }
 nav{
-    
+    justify-items: end;
 }

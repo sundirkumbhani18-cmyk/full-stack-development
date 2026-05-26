@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+header{
+    background-color: black;
+    color: white;
+}
+header .navbar-nav li a:hover{
+    color: #ff8a00 !important;
+}
+header .navbar-brand :nth-child(1){
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: .05em;
+}
+header .navbar-brand :nth-child(2){
+    color: #ffc107;
+    font-size: 1.6rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: .05em;
+}
+main .hero .container-fluid{
+    background: radial-gradient(circle at 70% 30%, #3a1500 0%, #0b0b10 60%), linear-gradient(135deg, #1a0500, #0b0b10);;
+}
+main .hero .col-12{
+    padding: 5px 60px;
+}
+main .hero .col-12 h2{
+    color: white;
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    line-height: .95;
+    text-shadow: 0 6px 30px rgba(255, 138, 0, .4);
+}
+
+
+
