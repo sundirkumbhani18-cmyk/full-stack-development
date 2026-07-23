@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" align="center" style="color: whitesmoke; background-color: black;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Tags</th>
+                <th>Dimensions</th>
+                <th>Reviews</th>
+            </tr>
+        </thead>
+        <tbody id="productdata"></tbody>
+    </table>
+    <script>
+        const viewproducts = async () => {
+            try {
+                let res = await fetch(`https://dummyjson.com/products`);
+                let data = await res.json();
+                products = data.products;
+                let row = "";
+                products.map((items, i) => {
+                    row += `
+                        <tr>
+                            <td>${items.id}</td>
+                            <td>${items.category}</td>
+                            <td>${items.tags}</td>
+                            <td>width:${items.dimensions.width}||Height:${items.dimensions.height}||depth:${items.dimensions.depth}</td>
+                            <td>
+                                <table border="1" width="400px" style="background-color:white; color:black;">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr.no</th>
+                                            <th>Name</th>
+                                            <th>Comment</th>
+                                            <th>Rating</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>`
+                                       let sum =0;
+                                       items.reviews.map((rev,i)=>{
+                                       sum= sum + rev.rating
+                                         row+=`
+                                            <tr>
+                                                <td>${++i}</td>
+                                               <td>${rev.reviewerName}</td>
+                                               <td>${rev.comment}</td>
+                                               <td>${rev.rating}</td>
+                                            </tr>
+                                         `
+                                       })
+                                       row+=`
+                                        <tr>
+                                            <td colspan="4">Total Rating:-${sum}</td>
+                                        </tr>
+                                       `
+                    row += `        <tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    `
+                })
+                document.getElementById("productdata").innerHTML = row
+            } catch (err) {
+                console.log(err);
+                return false;
+            }
+        }
+        viewproducts();
+    </script>
+</body>
+</html>

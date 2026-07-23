@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+        </thead>
+        <tbody id="users">
+
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            method:"get",
+            url:"https://dummyjson.com/users",
+            success:function(data){
+                let users = data.users;
+                let output ="";
+
+                users.map((u,index)=>{
+                    output +=`
+                    <tr>
+                        <td>${u.id}</td>
+                        <td>${u.firstName}</td>
+                        <td>${u.lastName}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById("users").innerHTML = output
+            }
+        });
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@ let fr=new Array("apple","banana","kiwi");
 // }
 let i=0;
 while(i<fr.length){
-    document.write(fr[i]);
+    document.write(`fr[i]`);
     i++
     document.write(`</br>`);
 }

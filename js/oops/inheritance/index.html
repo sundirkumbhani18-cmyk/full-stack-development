@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       class animal{
+         eat(){
+            console.log(`animal is eating`);
+         }
+       }
+      
+       class dog extends animal{
+          bark(){
+            console.log(`dog is barking`);
+          }
+       }
+
+       class puppy extends dog{
+          cry(){
+            console.log(`puppy is crying`);
+          }
+          
+       }
+
+       class puppy1 extends puppy{
+          dance(){
+            console.log(`puppy1 is dancing`);
+            
+          }
+       }
+
+       class puppy2 extends puppy{
+          run(){
+            console.log(`puppy2 is runing`);
+            
+          }
+       }
+        let a=new animal();
+        let b=new puppy2();
+        let c=new puppy1();
+        
+        b.eat();
+        b.bark();
+        b.cry();
+        c.dance();
+        b.run();
+
+    </script>
+</body>
+</html>

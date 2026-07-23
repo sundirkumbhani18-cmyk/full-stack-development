@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const viewwether = async () =>{
+            try{
+                let res = await fetch (``);
+                let data = await res.json();
+                whether = data.whether;
+                let row="";
+                whether.map((items,i)=>{
+                    row+=`
+                    <tr>
+                       <td></td>
+                       <td>
+                            <table>
+                                <thead>
+                                  <tr>
+                                      <th></th>
+                                      <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    `
+                                    items.dhgh.map((dh,i)=>{
+                                        row+=`
+                                          <tr>
+                                             <td>${dh}</td>
+                                          </tr>
+                                        `
+                                    })
+                                +=`</tbody>
+                            </table>
+                       </td>
+                    </tr>
+                    `
+                })
+                document.getElementById("").innerHTML = row;
+            }catch(err){
+               console.log("err");
+               return false;            
+            }
+        }
+        viewwether();
+    </script>
+</body>
+</html> 

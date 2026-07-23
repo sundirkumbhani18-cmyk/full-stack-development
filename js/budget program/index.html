@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div>
+        <h2>Budget</h2>
+        <input type="text" id="Budget" name="Budget" placeholder="entet your Budget">
+        <button id="setbtn">set budget</button>
+    </div> -->
+    <div>
+        <h2>Expenss</h2>
+        <form>
+            <input type="hidden" id="editid">
+            <input type="text" id="expenss" name="expenss" placeholder="expenss category">
+            <input type="text" id="expdetais" name="expdetais" placeholder="enter your Expenss Amount"
+                style="width: 250px;">
+        </form>
+        <button id="check" onclick="addexpenselist()">Check Amount</button>
+        <button id="update" onclick="updatex()">update</button>
+    </div>
+    <div>
+        <h2>Expenss List</h2>
+        <table border="1" width="50%">
+            <tbody id="record"></tbody>
+        </table>
+    </div>
+    <script>
+        let addexpense = JSON.parse(localStorage.getItem('addexpense')) || []
+        const viewexpenselist = () => {
+            document.getElementById('check').style.display = "block";
+            document.getElementById('update').style.display = "none";
+            let data = ''
+            let addexpense = JSON.parse(localStorage.getItem('addexpense')) || []
+            addexpense.map((items, index) => {
+                let { taskid, expenss, expdetais, } = items
+                data += `
+                    <tr>
+                        <td>${expenss}</td>
+                        <td>${expdetais}</td>
+                        <td>
+                            <button onclick="editexpans(${taskid})">Edit</button>
+                            <button id="delet" onclick="deletexpens(${taskid})">Delete</button>
+                        </td>
+                    </tr>
+                `
+            })
+            document.getElementById('record').innerHTML = data;
+        }
+        viewexpenselist();
+        const addexpenselist = () => {
+            let addexpense = JSON.parse(localStorage.getItem('addexpense')) || []
+            let expenss = document.getElementById('expenss').value;
+            let expdetais = document.getElementById('expdetais').value;
+            let obj = {
+                taskid: Math.floor(Math.random() * 100000),
+                expenss: expenss,
+                expdetais: expdetais,
+            }
+            addexpense.push(obj)
+            localStorage.setItem('addexpense', JSON.stringify(addexpense));
+            viewexpenselist();
+            alert("expenss successfully add");
+            document.getElementById('expenss').value = ""
+            document.getElementById('expdetais').value = ""
+        }
+        const editexpans = (id) => {
+            let data = addexpense = JSON.parse(localStorage.getItem('addexpense')) || []
+            let single = data.find(val => val.taskid == id);
+            document.getElementById('expenss').value = single.expenss
+            document.getElementById('expdetais').value = single.expdetais
+            document.getElementById('editid').value = single.taskid
+            document.getElementById('update').style.display = "block";
+            document.getElementById('check').style.display = "none";
+        }
+        const updatex = () => {
+            let id = document.getElementById('editid').value;
+            let expenss = document.getElementById('expenss').value;
+            let expdetais = document.getElementById('expdetais').value;
+            let data = JSON.parse(localStorage.getItem('addexpense')) || [];
+            let up = data.map((val, index) => {
+                if (val.taskid == id) {
+                    val.expenss = expenss
+                    val.expdetais = expdetais
+                }
+                return val;
+            })
+            localStorage.setItem('addexpense', JSON.stringify(up));
+            alert("expenss edited");
+            document.getElementById('editid').value = "";
+            document.getElementById('expenss').value = "";
+            document.getElementById('expdetais').value = "";
+            viewexpenselist();
+        }
+        const deletexpens = (id) => {
+            let data = JSON.parse(localStorage.getItem('addexpense')) || [];
+
+            let deletedata = data.filter((val, index) => {
+                return val.taskid != id;
+            })
+            localStorage.setItem('addexpense', JSON.stringify(deletedata));
+            alert("record is deleted");
+            viewexpenselist();
+        }
+
+
+    </script>
+</body>
+
+</html>

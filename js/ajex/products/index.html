@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Tags</th>
+                <th>Dimenstion</th>
+                <th>Reviews</th>
+            </tr>
+        </thead>
+        <tbody id="products">
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            method: "get",
+            url: "https://dummyjson.com/products",
+            success: function (data) {
+                let products = data.products;
+                let output = "";
+                products.map((p, i) => {
+                    output += `
+                    <tr>
+                       <td>${p.id}</td>
+                       <td>${p.title}</td>
+                       <td>${p.tags}</td>
+                       <td>width:${p.dimensions.width}||height:${p.dimensions.height}</td>
+                       <td>
+                        <table border="1">
+                            <thead>
+                               <tr>
+                                  <td>Name</td>
+                                  <td>Comment</td>
+                                  <td>Rating</td>
+                                </tr>
+                            </thead>
+                            <tbody>`
+                    p.reviews.map((rev, i) => {
+                        output += `
+                                    <tr>
+                                       <td>${rev.reviewerName}</td>
+                                       <td>${rev.comment}</td>
+                                       <td>${rev.rating}</td>
+                                    </tr>`
+                    })
+                    output += `</tbody>
+                        </table>
+                       </td>
+                    </tr>
+                    `
+                })
+                document.getElementById("products").innerHTML = output
+            }
+        })
+    </script>
+</body>
+</html>

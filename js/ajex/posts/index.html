@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Tags</th>
+                <th>Reactions</th>
+                <th>Views</th>
+                <th>User id</th>
+            </tr>
+        </thead>
+        <tbody id="posts">
+            </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            method:`get`,
+            url:"https://dummyjson.com/posts",
+            success:function(data){
+                let posts= data.posts;
+                let output ="";
+                posts.map((p,index)=>{
+                    output +=`<tr>
+                        <td>${p.id}</td>
+                        <td>${p.title}</td>
+                        <td>${p.tags}</td>
+                        <td>${p.reactions.likes}||${p.reactions.dislike}</td>
+                        <td>${p.views}</td>
+                        <td>${p.userId}</td>
+                        </tr>`
+                })
+                document.getElementById('posts').innerHTML = output
+            }
+        })
+    </script>
+</body>
+</html>
