@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EcoDetect - Waste Identifier</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f8f3;
+      color: #17231b;
+    }
+
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .badge {
+      background: #e6f5e9;
+      color: #188038;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 10px 25px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      color: #68736b;
+      font-size: 17px;
+    }
+
+    .scanner {
+      background: white;
+      padding: 20px;
+      border-radius: 22px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    .camera {
+      position: relative;
+      background: #111;
+      border-radius: 17px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .camera-message {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    .camera-message span {
+      font-size: 60px;
+    }
+
+    .scan-box {
+      position: absolute;
+      left: 15%;
+      right: 15%;
+      top: 15%;
+      bottom: 15%;
+      border: 2px solid #42d96b;
+      pointer-events: none;
+    }
+
+    .scan-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #42d96b;
+      animation: scan 2s infinite;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0;
+      }
+
+      50% {
+        top: 100%;
+      }
+
+      100% {
+        top: 0;
+      }
+    }
+
+    .controls {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    button {
+      border: 0;
+      padding: 15px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    #startBtn {
+      background: #188038;
+      color: white;
+    }
+
+    #stopBtn {
+      background: #222;
+      color: white;
+      display: none;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.06);
+    }
+
+    .result-icon {
+      font-size: 55px;
+    }
+
+    .result h2 {
+      font-size: 30px;
+      margin: 5px 0;
+    }
+
+    .confidence {
+      margin-top: 20px;
+    }
+
+    .bar {
+      height: 10px;
+      background: #e4e8e5;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: #28a745;
+    }
+
+    .disposal {
+      margin-top: 20px;
+      padding: 15px;
+      background: #edf8ef;
+      border-radius: 12px;
+    }
+
+    .categories {
+      margin: 35px 0;
+    }
+
+    .categories h2 {
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .category {
+      background: white;
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    .category div {
+      font-size: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: white;
+      color: #69746d;
+    }
+
+    @media(max-width:600px) {
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .camera {
+        aspect-ratio: 9/14;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .badge {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">♻️ EcoDetect</div>
+  <div class="badge">AI Waste Scanner</div>
+</header>
+
+<div class="container">
+
+  <section class="hero">
+    <h1>Identify Your Waste</h1>
+
+    <p>
+      Point your camera at an object and let AI
+      identify it automatically.
+    </p>
+  </section>
+
+  <section class="scanner">
+
+    <div class="camera">
+
+      <video id="video" autoplay muted playsinline></video>
+
+      <div id="cameraMessage" class="camera-message">
+        <span>📷</span>
+        <h3>Camera Scanner</h3>
+        <p>Start camera to identify waste</p>
+      </div>
+
+      <div id="scanBox" class="scan-box" style="display:none;">
+        <div class="scan-line"></div>
+      </div>
+
+    </div>
+
+    <div class="controls">
+
+      <button id="startBtn">
+        📷 Start Camera
+      </button>
+
+      <button id="stopBtn">
+        ⛔ Stop Camera
+      </button>
+
+    </div>
+
+  </section>
+
+  <section id="result" class="result">
+
+    <div id="resultIcon" class="result-icon">♻️</div>
+
+    <p>Waste detected</p>
+
+    <h2 id="category">Scanning...</h2>
+
+    <p>
+      Object:
+      <strong id="objectName">-</strong>
+    </p>
+
+    <div class="confidence">
+
+      <div>
+        Confidence:
+        <strong id="confidenceText">0%</strong>
+      </div>
+
+      <div class="bar">
+        <div id="progress"></div>
+      </div>
+
+    </div>
+
+    <div class="disposal">
+
+      <strong>♻️ How to dispose</strong>
+
+      <p id="disposalText">
+        -
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="categories">
+
+    <h2>Waste Categories</h2>
+
+    <div class="grid">
+
+      <div class="category">
+        <div>🧴</div>
+        <strong>Plastic</strong>
+      </div>
+
+      <div class="category">
+        <div>📄</div>
+        <strong>Paper</strong>
+      </div>
+
+      <div class="category">
+        <div>🍾</div>
+        <strong>Glass</strong>
+      </div>
+
+      <div class="category">
+        <div>🥫</div>
+        <strong>Metal</strong>
+      </div>
+
+      <div class="category">
+        <div>🍎</div>
+        <strong>Organic</strong>
+      </div>
+
+      <div class="category">
+        <div>💻</div>
+        <strong>E-Waste</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  EcoDetect • AI Waste Identification
+</footer>
+
+
+<script>
+
+let video = document.getElementById("video");
+
+let startBtn = document.getElementById("startBtn");
+let stopBtn = document.getElementById("stopBtn");
+
+let cameraMessage =
+  document.getElementById("cameraMessage");
+
+let scanBox =
+  document.getElementById("scanBox");
+
+let result =
+  document.getElementById("result");
+
+let category =
+  document.getElementById("category");
+
+let objectName =
+  document.getElementById("objectName");
+
+let confidenceText =
+  document.getElementById("confidenceText");
+
+let progress =
+  document.getElementById("progress");
+
+let resultIcon =
+  document.getElementById("resultIcon");
+
+let disposalText =
+  document.getElementById("disposalText");
+
+let stream = null;
+let model = null;
+let running = false;
+
+
+/* Waste rules */
+
+const wasteRules = {
+
+  bottle: {
+    category: "Plastic",
+    icon: "🧴",
+    disposal: "Put the bottle in the plastic/recycling bin."
+  },
+
+  cup: {
+    category: "Plastic / Paper",
+    icon: "🥤",
+    disposal: "Check the material and place it in the appropriate recycling bin."
+  },
+
+  can: {
+    category: "Metal",
+    icon: "🥫",
+    disposal: "Put the can in the metal recycling bin."
+  },
+
+  "wine glass": {
+    category: "Glass",
+    icon: "🍾",
+    disposal: "Put the glass item in the glass recycling container."
+  },
+
+  banana: {
+    category: "Organic",
+    icon: "🍌",
+    disposal: "Put it in the organic or compost waste bin."
+  },
+
+  apple: {
+    category: "Organic",
+    icon: "🍎",
+    disposal: "Put it in the organic or compost waste bin."
+  },
+
+  orange: {
+    category: "Organic",
+    icon: "🍊",
+    disposal: "Put it in the organic or compost waste bin."
+  },
+
+  laptop: {
+    category: "E-Waste",
+    icon: "💻",
+    disposal: "Take it to an authorized e-waste collection center."
+  },
+
+  cellphone: {
+    category: "E-Waste",
+    icon: "📱",
+    disposal: "Take it to an authorized e-waste collection center."
+  },
+
+  keyboard: {
+    category: "E-Waste",
+    icon: "⌨️",
+    disposal: "Take it to an authorized e-waste collection center."
+  },
+
+  mouse: {
+    category: "E-Waste",
+    icon: "🖱️",
+    disposal: "Take it to an authorized e-waste collection center."
+  }
+
+};
+
+
+/* Load AI model */
+
+async function loadModel() {
+
+  try {
+
+    model =
+      await cocoSsd.load();
+
+    console.log("AI model loaded");
+
+  } catch(error) {
+
+    console.error(error);
+
+    alert("Could not load AI model.");
+
+  }
+
+}
+
+
+/* Start camera */
+
+async function startCamera() {
+
+  try {
+
+    if(!model) {
+
+      await loadModel();
+
+    }
+
+    stream =
+      await navigator.mediaDevices.getUserMedia({
+
+        video: {
+          facingMode: {
+            ideal: "environment"
+          }
+        },
+
+        audio: false
+
+      });
+
+    video.srcObject = stream;
+
+    running = true;
+
+    cameraMessage.style.display = "none";
+
+    scanBox.style.display = "block";
+
+    startBtn.style.display = "none";
+
+    stopBtn.style.display = "inline-block";
+
+    result.style.display = "block";
+
+    detectWaste();
+
+  } catch(error) {
+
+    console.error(error);
+
+    alert(
+      "Camera permission was denied or camera is unavailable."
+    );
+
+  }
+
+}
+
+
+/* Stop camera */
+
+function stopCamera() {
+
+  running = false;
+
+  if(stream) {
+
+    stream
+      .getTracks()
+      .forEach(track => track.stop());
+
+    stream = null;
+
+  }
+
+  video.srcObject = null;
+
+  cameraMessage.style.display = "flex";
+
+  scanBox.style.display = "none";
+
+  startBtn.style.display = "inline-block";
+
+  stopBtn.style.display = "none";
+
+}
+
+
+/* Detect waste */
+
+async function detectWaste() {
+
+  if(!running || !model) {
+    return;
+  }
+
+  try {
+
+    const predictions =
+      await model.detect(video);
+
+    let best = null;
+
+    predictions.forEach(prediction => {
+
+      const name =
+        prediction.class.toLowerCase();
+
+      if(wasteRules[name]) {
+
+        if(
+          !best ||
+          prediction.score > best.score
+        ) {
+
+          best = {
+
+            name: name,
+
+            score: prediction.score,
+
+            ...wasteRules[name]
+
+          };
+
+        }
+
+      }
+
+    });
+
+
+    if(best) {
+
+      showResult(best);
+
+    }
+
+  } catch(error) {
+
+    console.error(error);
+
+  }
+
+
+  if(running) {
+
+    setTimeout(
+      detectWaste,
+      300
+    );
+
+  }
+
+}
+
+
+/* Show result */
+
+function showResult(data) {
+
+  const percent =
+    Math.round(data.score * 100);
+
+  category.textContent =
+    data.category;
+
+  objectName.textContent =
+    data.name;
+
+  confidenceText.textContent =
+    percent + "%";
+
+  progress.style.width =
+    percent + "%";
+
+  resultIcon.textContent =
+    data.icon;
+
+  disposalText.textContent =
+    data.disposal;
+
+}
+
+
+/* Buttons */
+
+startBtn.addEventListener(
+  "click",
+  startCamera
+);
+
+stopBtn.addEventListener(
+  "click",
+  stopCamera
+);
+
+
+/* Load AI */
+
+loadModel();
+
+</script>
+
+</body>
+</html>
