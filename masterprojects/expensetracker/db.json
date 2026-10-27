@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "Sundir Patel",
+      "email": "sundirkumbhani18@gmail.com",
+      "password": "1234",
+      "role": "admin",
+      "id": "So-6AZIn10Q"
+    },
+    {
+      "name": "pankaj ",
+      "email": "pankaj@123",
+      "password": "1234",
+      "role": "user",
+      "id": "4dFsst1WcMo"
+    },
+    {
+      "name": "rushil ashodariya",
+      "email": "rushil@123",
+      "password": "1234",
+      "role": "user",
+      "id": "x3e8TquytGM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
